@@ -3,3 +3,5 @@ hostent_haddr.patch
 slsh_libs.patch
 hurd-wcontinued.patch
 # die-on-failure.patch
+typos.patch
+dso_linking.patch

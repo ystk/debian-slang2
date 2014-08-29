@@ -1,0 +1,30 @@
+Description: Fix FTBFS when DSO linking. 
+Bug-Origin: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=719902
+Forwarded: no
+Last-Updated: 2013-12-07
+
+Index: slang2-2.2.4/slsh/Makefile.in
+===================================================================
+--- slang2-2.2.4.orig/slsh/Makefile.in	2013-12-07 19:13:21.000000000 +0000
++++ slang2-2.2.4/slsh/Makefile.in	2013-12-07 21:12:38.000000000 +0000
+@@ -24,6 +24,8 @@
+ INSTALL		= @INSTALL@
+ INSTALL_DATA	= @INSTALL_DATA@
+ MKINSDIR	= $(CONFIG_DIR)/autoconf/mkinsdir.sh
++DL_LIB          = @DYNAMIC_LINK_LIB@
++ELF_DEP_LIBS    = @ELF_DEP_LIBS@
+ #----------------------------------------------------------------------------
+ # Where system-wide slsh.rc, scripts, and library files reside
+ #----------------------------------------------------------------------------
+@@ -78,9 +80,9 @@
+ all: $(OBJDIR)/slsh_exe
+ slsh: $(OBJDIR)/slsh
+ $(OBJDIR)/slsh_exe: $(OBJDIR)/slsh.o $(OBJDIR)/readline.o
+-	$(CC) $(CFLAGS) $(OBJDIR)/slsh.o $(OBJDIR)/readline.o -o $(OBJDIR)/slsh_exe $(LDFLAGS) $(SRC_LIBS)
++	$(CC) $(CFLAGS) $(OBJDIR)/slsh.o $(OBJDIR)/readline.o -o $(OBJDIR)/slsh_exe $(LDFLAGS) $(SRC_LIBS) $(ELF_DEP_LIBS)
+ $(OBJDIR)/slsh: $(OBJDIR)/slsh.o $(OBJDIR)/readline.o
+-	$(CC) $(CFLAGS) $(OBJDIR)/slsh.o $(OBJDIR)/readline.o -o $(OBJDIR)/slsh $(LDFLAGS) $(INST_LIBS)
++	$(CC) $(CFLAGS) $(OBJDIR)/slsh.o $(OBJDIR)/readline.o -o $(OBJDIR)/slsh $(LDFLAGS) $(INST_LIBS) $(ELF_DEP_LIBS)
+ $(OBJDIR)/slsh.o: $(OBJDIR) slsh.c slsh.h config.h Makefile
+ 	cd $(OBJDIR) && $(CC) -c $(CFLAGS) $(SLANG_SRCINC) $(DEFS) $(SRCDIR)/slsh.c
+ $(OBJDIR)/readline.o: $(OBJDIR) readline.c slsh.h config.h Makefile

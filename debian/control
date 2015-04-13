@@ -13,7 +13,7 @@ Build-Depends: debhelper (>= 9), autoconf, autotools-dev,
  libpcre3-dev,
  libpng-dev,
  zlib1g-dev,
-Standards-Version: 3.9.5
+Standards-Version: 3.9.6
 Homepage: http://www.jedsoft.org/slang/
 VCS-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/slang2.git
 VCS-Git: git://anonscm.debian.org/collab-maint/slang2.git
@@ -23,7 +23,6 @@ Section: libdevel
 Architecture: any
 Depends: libslang2 (= ${binary:Version}), libc6-dev | libc-dev, libpng-dev, ${misc:Depends}
 Multi-Arch: same
-Conflicts: slang1-utf8-dev, slang-dev6
 Built-Using: ${Built-Using}
 Description: S-Lang programming library, development version
  S-Lang is a C programmer's library that includes routines for the rapid
@@ -106,7 +105,9 @@ Architecture: any
 Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Breaks: slsh (<< 2.1.4-3), libslang2 (<< 2.1.4-3)
+Conflicts: slang-histogram
+Provides: slang-histogram
+Replaces: slang-histogram
 Description: Shared modules for S-Lang language
  S-Lang is a C programmer's library that includes routines for the rapid
  development of sophisticated, user friendly, multi-platform applications.

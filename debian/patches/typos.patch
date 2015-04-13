@@ -3,11 +3,11 @@ Bug-Origin: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=731126
 Forwarded: no
 Last-Updated: 2013-12-07
 
-Index: slang2-2.2.4/doc/text/slangfun.txt
+Index: slang-2.3.0/doc/text/slangfun.txt
 ===================================================================
---- slang2-2.2.4.orig/doc/text/slangfun.txt	2011-04-11 03:37:07.000000000 +0100
-+++ slang2-2.2.4/doc/text/slangfun.txt	2013-12-07 21:03:37.000000000 +0000
-@@ -344,8 +344,8 @@
+--- slang-2.3.0.orig/doc/text/slangfun.txt
++++ slang-2.3.0/doc/text/slangfun.txt
+@@ -375,8 +375,8 @@ array_sort
    A stable sorting algorithm is one that preserves the order of equal
    elements. Merge-sort is an inherently stable algorithm, whereas
    quick-sort is not. Nevertheless, the slang library ensures the
@@ -18,7 +18,7 @@ Index: slang2-2.2.4/doc/text/slangfun.txt
    produce the same results:
  
       i = array_sort (a; dir=-1);
-@@ -2437,7 +2437,7 @@
+@@ -2690,7 +2690,7 @@ utime
   DESCRIPTION
   This function may be used to change the last access (actime) and last
   modification (modtime) times associated with the specified file.  If
@@ -27,7 +27,7 @@ Index: slang2-2.2.4/doc/text/slangfun.txt
   `errno' accordingly.
  
   NOTES
-@@ -3745,7 +3745,7 @@
+@@ -4022,7 +4022,7 @@ hypot
   EXAMPLE
    A vector in Euclidean 3 dimensional space may be represented by an
    array of three values representing the components of the vector in
@@ -36,7 +36,7 @@ Index: slang2-2.2.4/doc/text/slangfun.txt
    vector may be computed using the `hypot' function, e.g.,
  
        A = [2,3,4];
-@@ -3902,7 +3902,7 @@
+@@ -4234,7 +4234,7 @@ _max
  
   DESCRIPTION
    The `_max' function returns a floating point number equal to
@@ -45,7 +45,7 @@ Index: slang2-2.2.4/doc/text/slangfun.txt
    arrays (of equal length), an array of the corresponding values will
    be returned.
  
-@@ -5005,7 +5005,7 @@
+@@ -5332,7 +5332,7 @@ putenv
  
   DESCRIPTION
      This functions adds string `s' to the environment.  Typically,
@@ -54,7 +54,7 @@ Index: slang2-2.2.4/doc/text/slangfun.txt
      throws an `OSError' upon failure.
  
   NOTES
-@@ -7995,7 +7995,7 @@
+@@ -8651,7 +8651,7 @@ sprintf
      -         Use left-justification
      #         Use alternate form for formatting.
      0         Use 0 padding
@@ -63,16 +63,7 @@ Index: slang2-2.2.4/doc/text/slangfun.txt
      (space)   Use a blank instead of a plus sign.
  
  
-@@ -8402,7 +8402,7 @@
-   match regular expression specified by `pat'.  This function
-   performs the match starting at the first byte of the string.  The
-   optional `pos' argument may be used to specify a different byte
--  offse (numbered from 1).  This function returns the position in
-+  offset (numbered from 1).  This function returns the position in
-   bytes (numbered from 1) of the start of the match in `str'.
-   The exact substring matched may be found using
-   `string_match_nth'.
-@@ -8754,7 +8754,7 @@
+@@ -9410,7 +9410,7 @@ strskipbytes
    This function skips over a range of bytes in a string `str'.
    The byte range to be skipped is specified by the `range'
    parameter.  Optional start (`n0') and stop (`nmax')
@@ -81,7 +72,7 @@ Index: slang2-2.2.4/doc/text/slangfun.txt
    string to be processed.  The function returns a 0-based offset from
    the beginning of the string where processing stopped.
  
-@@ -9211,7 +9211,7 @@
+@@ -9867,7 +9867,7 @@ str_replace
    returned as well as the new string resulting from the replacement.
  
   NOTES

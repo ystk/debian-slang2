@@ -3,11 +3,11 @@ Bug-Origin: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=719902
 Forwarded: no
 Last-Updated: 2013-12-07
 
-Index: slang2-2.2.4/slsh/Makefile.in
+Index: slang-2.3.0/slsh/Makefile.in
 ===================================================================
---- slang2-2.2.4.orig/slsh/Makefile.in	2013-12-07 19:13:21.000000000 +0000
-+++ slang2-2.2.4/slsh/Makefile.in	2013-12-07 21:12:38.000000000 +0000
-@@ -24,6 +24,8 @@
+--- slang-2.3.0.orig/slsh/Makefile.in
++++ slang-2.3.0/slsh/Makefile.in
+@@ -24,6 +24,8 @@ RPATH		= @RPATH@
  INSTALL		= @INSTALL@
  INSTALL_DATA	= @INSTALL_DATA@
  MKINSDIR	= $(CONFIG_DIR)/autoconf/mkinsdir.sh
@@ -16,7 +16,7 @@ Index: slang2-2.2.4/slsh/Makefile.in
  #----------------------------------------------------------------------------
  # Where system-wide slsh.rc, scripts, and library files reside
  #----------------------------------------------------------------------------
-@@ -78,9 +80,9 @@
+@@ -78,9 +80,9 @@ SRC_LIBS = $(SLANG_SRCLIB) -lslang $(REA
  all: $(OBJDIR)/slsh_exe
  slsh: $(OBJDIR)/slsh
  $(OBJDIR)/slsh_exe: $(OBJDIR)/slsh.o $(OBJDIR)/readline.o
@@ -26,5 +26,5 @@ Index: slang2-2.2.4/slsh/Makefile.in
 -	$(CC) $(CFLAGS) $(OBJDIR)/slsh.o $(OBJDIR)/readline.o -o $(OBJDIR)/slsh $(LDFLAGS) $(INST_LIBS)
 +	$(CC) $(CFLAGS) $(OBJDIR)/slsh.o $(OBJDIR)/readline.o -o $(OBJDIR)/slsh $(LDFLAGS) $(INST_LIBS) $(ELF_DEP_LIBS)
  $(OBJDIR)/slsh.o: $(OBJDIR) slsh.c slsh.h config.h Makefile
- 	cd $(OBJDIR) && $(CC) -c $(CFLAGS) $(SLANG_SRCINC) $(DEFS) $(SRCDIR)/slsh.c
+ 	cd $(OBJDIR) && $(CC) $(SLANG_SRCINC) $(CFLAGS) -c $(DEFS) $(SRCDIR)/slsh.c
  $(OBJDIR)/readline.o: $(OBJDIR) readline.c slsh.h config.h Makefile

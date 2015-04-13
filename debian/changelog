@@ -1,3 +1,20 @@
+slang2 (2.3.0-2) unstable; urgency=medium
+
+  * Patch from John Davis to fix segfault in slang/jed.
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Fri, 24 Oct 2014 09:21:28 +0100
+
+slang2 (2.3.0-1) unstable; urgency=medium
+
+  * New upstream release.
+   - Merged hurd-wcontinued.patch
+   - Patch for new-glibc needed for sockets, to uncover strtoll(), atoll() 
+  * Now incorporates and obsoletes slang-histogram.
+  * Remove obsolete Conflicts/Breaks statements from debian/control.
+  * Now at Standards-Version: 3.9.6
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Mon, 22 Sep 2014 10:24:11 +0100
+
 slang2 (2.2.4-17) unstable; urgency=medium
 
   * Rebuild with unicode update for 7.0. Now  Build-Depend and use
